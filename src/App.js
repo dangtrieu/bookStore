@@ -12,7 +12,7 @@ function App() {
       <div>
         <FaBitcoin />
       </div>
-      <Header />
+      <Header />9+
       <Footer />
     </S.apps>
   );
