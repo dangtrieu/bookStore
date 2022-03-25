@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const rowRight = styled.div`
   width: 100%;
-  background: red;
+
 `;
 export const sectionProduct = styled.div`
  
