@@ -11,6 +11,10 @@ function App() {
     <S.apps>
       <div>
         <FaBitcoin />
+
+
+
+
       </div>
       <Header />9+
       <Footer />
