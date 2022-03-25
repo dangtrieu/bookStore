@@ -32,3 +32,21 @@ export const listmenu = styled.div`
     line-height: 26px;
   }
 `;
+
+export const andresbox = styled.div`
+display:flex;
+ padding-top:30px;
+`
+export const icons = styled.div`
+
+`
+export const TitleIcon = styled.div`
+    font-size: 13px;
+    font-weight: 400;
+    color: #a9a9a9;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+    margin-left:20px;
+   
+`
