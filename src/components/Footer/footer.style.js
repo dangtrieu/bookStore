@@ -18,4 +18,5 @@ export const Products = styled.div`
   display: grid;
   column-gap: 2%;
   grid-template-columns: 28% 70%;
+      padding-bottom: 20px;
 `;

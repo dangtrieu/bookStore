@@ -36,11 +36,20 @@ export const boxProductNew = styled.div`
   }
 `;
 
+
+
 export const buttonclick = styled.div`
-  border: 1px solid #0c0c0c;
+  border: 1px solid #898989;
   display: flex;
   font-size: 11px;
   padding: 7px 15px 8px 35px;
+  position: relative;
+  cursor: pointer;
+  &:hover {
+    color: #fff;
+    border-color: #f26522;
+    background: #f26522;
+  }
 `;
 export const boxgrow = styled.div`
   display: flex;
@@ -51,6 +60,10 @@ export const boxgrow = styled.div`
 
 export const paddingProductnew = styled.div`
   padding: 10px;
+  img{
+       cursor: pointer;
+
+  }
 `;
 
 export const tablePrice = styled.div`
@@ -70,14 +83,22 @@ export const tablePrice = styled.div`
 
 export const spricebox = styled.div`
   display: flex;
-  span {
+  h5 {
+    color: #f26522;
+  }
+  h3 {
+    display: flex;
+    margin-top: 6px;
     margin-left: 15px;
+    text-decoration: line-through;
   }
 `;
 export const titleMax = styled.div`
   h1:first-child {
     margin-right: 20px;
     font-size: 26px;
+  }&:hover{
+    color:red;
   }
   &:after {
    content: "";
@@ -89,3 +110,15 @@ export const titleMax = styled.div`
     top: 5px;
 }
 `
+export const Spans = styled.div`
+  margin-top: 1px;
+`;
+export const bags = styled.div`
+  position: absolute;
+  left: 11px;
+  top: 6px;
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+`;

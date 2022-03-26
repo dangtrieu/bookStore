@@ -7,6 +7,8 @@ export const newProduct = styled.div`
 export const selectionnewProduct = styled.div``;
 export const boxx = styled.div`
   width: 100%;
+  background: white;
+  margin-top: 30px;
 `;
 export const boxProductNew = styled.div`
   width: 100%;

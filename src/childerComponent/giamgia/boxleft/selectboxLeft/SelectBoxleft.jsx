@@ -1,11 +1,15 @@
 import React from "react";
 import * as S from "./selectboxleft.style";
+import { FaShoppingBag } from "react-icons/fa";
+
 export default function SelectBoxleft() {
   return (
     <S.boxx>
       <S.newProduct>
-        <S.selectionnewProduct>sản phẩm mới</S.selectionnewProduct>
-        <S.selectionnewProduct>Xem tất cả</S.selectionnewProduct>
+        <S.selectionnewProduct>
+          <span>sản phẩm mới</span>
+        </S.selectionnewProduct>
+        <S.selectionnewProduct>Xem tất cả >> </S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
         <S.boxProductNew>
@@ -14,11 +18,14 @@ export default function SelectBoxleft() {
             <S.tablePrice>
               <h3>di qua hoa cuc</h3>
               <S.spricebox>
-                <span>30.000d</span>
-                <span>30.000d</span>
+                <h5>30.000đ</h5>
+                <h3>30.000đ</h3>
               </S.spricebox>
               <S.buttonclick>
-                <a href="#">Thêm vào giỏ hàng</a>
+                <S.bags>
+                  <FaShoppingBag />
+                </S.bags>
+                <S.Spans>Thêm vào giỏ hàng </S.Spans>
               </S.buttonclick>
             </S.tablePrice>
           </S.paddingProductnew>

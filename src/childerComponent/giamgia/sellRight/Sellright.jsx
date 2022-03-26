@@ -9,7 +9,6 @@ export default function Sellright() {
       <S.sectionProduct>
         <SelectionNewProduct />
         <DiscountProducts />
-
         <Highlightsproduct />
       </S.sectionProduct>
     </S.rowRight>
