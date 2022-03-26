@@ -33,9 +33,10 @@ export const conten = styled.div`
 `;
 
 export const searchs = styled.div`
-  position: relative;
-  padding: 7px 0 0 0;
+      position: relative;
+      padding:7px 0 0 0 ;
   input {
+    
     height: 30px;
     border: 1px solid #e1e1e1;
     text-indent: 15px;
@@ -43,13 +44,9 @@ export const searchs = styled.div`
     color: #898989;
     outline: none;
     border-radius: 4px;
-  }
-  svg {
-    position: absolute;
-    right: 13px;
-    color: #5c5656;
-    top: 14px;
-  }
+    }
+     svg{
+      position:absolute;}
 `;
 
 export const listProduct = styled.div`
