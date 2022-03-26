@@ -9,7 +9,7 @@ export default function SelectBoxleft() {
         <S.selectionnewProduct>
           <span>sản phẩm mới</span>
         </S.selectionnewProduct>
-        <S.selectionnewProduct>Xem tất cả >> </S.selectionnewProduct>
+        <S.selectionnewProduct>Xem tất cả {'>>'} </S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
         <S.boxProductNew>
