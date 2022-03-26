@@ -13,6 +13,7 @@ import {
   FaShoppingCart,
   FaWindowClose,
 } from "react-icons/fa";
+import paths from "../../Constants/paths";
 
 export default function Header() {
   return (
@@ -20,15 +21,15 @@ export default function Header() {
       <S.StyledHeader>
         <S.login>
           <S.LoginIcon>
-            <S.tabIcon>
+            <S.tabIcon to={paths.home}>
               <FaLock />
               THANH TOÁN
             </S.tabIcon>
-            <S.tabIcon>
+            <S.tabIcon to={paths.login}>
               <FaSignInAlt />
               ĐĂNG KÍ
             </S.tabIcon>
-            <S.tabIcon>
+            <S.tabIcon to={paths.register}>
               <FaCheckSquare />
               ĐĂNG NHẬP
             </S.tabIcon>

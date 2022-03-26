@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 export const StyledHeader = styled.div`
   position: relative;
@@ -71,14 +72,14 @@ export const LoginIcon = styled.div`
   padding: 5px 0 5px 0;
   justify-content: end;
 `;
-export const tabIcon = styled.div`
+export const tabIcon = styled(Link)`
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-left: 40px;
   cursor: pointer;
-
+  text-decoration: none;
   svg {
     margin-right: 5px;
   }

@@ -3,8 +3,8 @@ import Maxfooter from "../../childerComponent/childFooter/maxFooter/Maxfooter";
 import SliderFooter from "../../childerComponent/childFooter/sliderFooter/SliderFooter";
 import SellLeft from "../../childerComponent/giamgia/sellleft/SellLeft";
 import Sellright from "../../childerComponent/giamgia/sellRight/Sellright";
-import * as S from "./footer.style";
-export default function Footer() {
+import * as S from "./homePage.style";
+function HomePage() {
   return (
     <S.Footers>
       <S.Container>
@@ -20,3 +20,5 @@ export default function Footer() {
     </S.Footers>
   );
 }
+
+export default HomePage;
