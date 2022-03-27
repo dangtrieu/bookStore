@@ -8,6 +8,7 @@ export default function SelectionNewProduct() {
   const dispatch = useDispatch();
 
   const [books, setBooks] = useState([]);
+  const [countcart, setCountCart] = useState(0);
   const state = useSelector((state) => state);
 
   const { dataBook: dataBook, login: login } = state;
@@ -15,13 +16,14 @@ export default function SelectionNewProduct() {
   useEffect(() => {
     dispatch(getBooks());
   }, []);
+  const handleLengthCar = (value, index) => {};
   return (
     <S.boxx>
       <S.newProduct>
         <S.selectionnewProduct>
           <span>sản phẩm mới</span>
         </S.selectionnewProduct>
-        <S.selectionnewProduct>Xem tất cả >></S.selectionnewProduct>
+        <S.selectionnewProduct>Xem tất cả {">>"}</S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
         {dataBook.map((value, index) => (
@@ -38,7 +40,9 @@ export default function SelectionNewProduct() {
                   <S.bags>
                     <FaShoppingBag />
                   </S.bags>
-                  <S.Spans>Thêm vào giỏ hàng </S.Spans>
+                  <S.Spans onClick={() => handleLengthCar((value, index))}>
+                    Thêm vào giỏ hàng
+                  </S.Spans>
                 </S.buttonclick>
               </S.tablePrice>
             </S.paddingProductnew>
