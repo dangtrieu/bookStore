@@ -3,7 +3,31 @@ import * as S from "./loginPage.style";
 import { FaAngleRight } from "react-icons/fa";
 import TextPassword from "../../../components/TextPassword/TextPassword";
 import TextInputEmail from "../../../components/TextInputEmail/TextInputEmail";
+import axios from "axios";
 function LoginPage() {
+  //logic here
+
+  //state
+
+  const handleChange = (e) => {
+    // e.target.value;
+    //set state
+  };
+
+  const login = () => {
+    axios
+      .post("/user", {
+        firstName: "Fred",
+        lastName: "Flintstone",
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <S.boxLogin>
       <S.Container>
@@ -24,7 +48,7 @@ function LoginPage() {
               <S.inputEmail>
                 <S.textS>Email *</S.textS>
                 <S.textS>
-                  <TextInputEmail />
+                  <TextInputEmail onChange={handleChange} />
                 </S.textS>
               </S.inputEmail>
               <S.inputPass>
@@ -33,7 +57,7 @@ function LoginPage() {
                   <TextPassword />
                 </S.textS>
               </S.inputPass>
-              <S.boxbutton>
+              <S.boxbutton onClick={login}>
                 <S.buttonlogin>Đăng kí</S.buttonlogin>
                 <a href="#">Đăng Kí</a>
               </S.boxbutton>

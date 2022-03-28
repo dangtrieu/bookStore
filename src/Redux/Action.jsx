@@ -6,6 +6,7 @@ export const loadBooks = (products) => {
     payload: products,
   };
 };
+
 export const getBooks = () => async (dispatch) => {
   try {
     const res = await axios.get(

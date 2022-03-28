@@ -9,7 +9,9 @@ export default function SelectionNewProduct() {
 
   const [books, setBooks] = useState([]);
   const [countcart, setCountCart] = useState(0);
-  const state = useSelector((state) => state);
+  const state = useSelector((state) => state.Reduce);
+
+  console.log(state);
 
   const { dataBook: dataBook, login: login } = state;
   console.log(dataBook);
