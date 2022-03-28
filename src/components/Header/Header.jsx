@@ -108,7 +108,7 @@ export default function Header() {
           </S.Container>
         </S.Midheader>
       </S.StyledHeader>
-      <ListMenu />
+      <ListMenu/>
     </>
   );
 }

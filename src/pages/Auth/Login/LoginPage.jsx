@@ -5,7 +5,7 @@ import TextPassword from "../../../components/TextPassword/TextPassword";
 import TextInputEmail from "../../../components/TextInputEmail/TextInputEmail";
 import axios from "axios";
 function LoginPage() {
-  const [value, setValue] = useStatetate("");
+  const [value, setValue] = useState("");
   //logic here
 
   //state
