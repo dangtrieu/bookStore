@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import * as S from "./loginPage.style";
 import { FaAngleRight } from "react-icons/fa";
 import TextPassword from "../../../components/TextPassword/TextPassword";
 import TextInputEmail from "../../../components/TextInputEmail/TextInputEmail";
 import axios from "axios";
 function LoginPage() {
+  const [value, setValue] = useStatetate("");
   //logic here
 
   //state
