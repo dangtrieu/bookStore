@@ -1,10 +1,15 @@
 import React from "react";
 import * as S from "./TextInputEmail.style";
 
-function TextInputEmail({ onChange, value, ...rest }) {
+function TextInputEmail({ onChange, value, name, ...rest }) {
   return (
     <S.subcriseinput>
-      <input value={value} onChange={onChange} placeholder="Email" />
+      <input
+        value={value}
+        onChange={onChange}
+        name={name}
+        placeholder="Email"
+      />
     </S.subcriseinput>
   );
 }

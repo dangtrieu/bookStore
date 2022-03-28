@@ -48,7 +48,12 @@ function LoginPage() {
               <S.inputEmail>
                 <S.textS>Email *</S.textS>
                 <S.textS>
-                  <TextInputEmail onChange={handleChange} />
+                  <TextInputEmail
+                    value={"value"}
+                    onChange={handleChange}
+                    name={"name"}
+                    placeholder={"Mat khau"}
+                  />
                 </S.textS>
               </S.inputEmail>
               <S.inputPass>
