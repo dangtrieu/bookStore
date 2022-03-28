@@ -16,6 +16,32 @@ import {
 import paths from "../../Constants/paths";
 
 export default function Header() {
+  const [key, setKey] = React.useState("");
+
+  React.useEffect(() => {
+    handleGetCookie("username");
+  }, []);
+
+  const handleGetCookie = (e) => {
+    let key = getCookie(e);
+    setKey(key);
+  };
+
+  const getCookie = (cname) => {
+    let name = cname + "=";
+    let ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  };
+
   return (
     <>
       <S.StyledHeader>
@@ -25,13 +51,13 @@ export default function Header() {
               <FaLock />
               THANH TOÁN
             </S.tabIcon>
-            <S.tabIcon to={paths.login}>
+            <S.tabIcon to={paths.register}>
               <FaSignInAlt />
               ĐĂNG KÍ
             </S.tabIcon>
-            <S.tabIcon to={paths.register}>
+            <S.tabIcon to={paths.login}>
               <FaCheckSquare />
-              ĐĂNG NHẬP
+              ĐĂNG NHẬP {key == "" ? "" : key}
             </S.tabIcon>
           </S.LoginIcon>
         </S.login>
@@ -108,7 +134,7 @@ export default function Header() {
           </S.Container>
         </S.Midheader>
       </S.StyledHeader>
-      <ListMenu/>
+      <ListMenu />
     </>
   );
 }
