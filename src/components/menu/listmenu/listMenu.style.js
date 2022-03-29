@@ -14,8 +14,7 @@ export const fortmat = styled.div`
   width: 1200px;
   margin-right: auto;
   margin-left: auto;
-  padding-right: 15px;
-  padding-left: 15px;
+
 `;
 export const Menus = styled.div`
   display: flex;

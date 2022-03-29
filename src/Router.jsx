@@ -1,8 +1,11 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthLayout from "./layouts/AuthLayout/AuthLayout";
+import MainDetail from "./layouts/MailDetal/MainDetail";
 import MainLayout from "./layouts/MainLayout/MainLayout";
 import LoginPage from "./pages/Auth/Login/LoginPage";
+import Register from "./pages/Auth/Register/Register";
+import Detail from "./components/detail/Detail";
 import HomePage from "./pages/HomePage/HomePage";
 function Router() {
   return (
@@ -28,8 +31,16 @@ function Router() {
         path="/register"
         element={
           <AuthLayout>
-            <h2>register</h2>
+            <Register />
           </AuthLayout>
+        }
+      />
+      <Route
+        path="/detail"
+        element={
+          <MainDetail>
+            <Detail />
+          </MainDetail>
         }
       />
     </Routes>

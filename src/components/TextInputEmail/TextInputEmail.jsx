@@ -1,16 +1,17 @@
 import React from "react";
-import * as S from "./textInputpass.style";
-function TextPassword({ value, onChange, name, placeholder, ...res }) {
+import * as S from "./TextInputEmail.style";
+
+function TextInputEmail({ onChange, value, name, ...rest }) {
   return (
     <S.subcriseinput>
       <input
         value={value}
         onChange={onChange}
         name={name}
-        placeholder={placeholder}
+        placeholder="Email"
       />
     </S.subcriseinput>
   );
 }
 
-export default TextPassword;
+export default TextInputEmail;

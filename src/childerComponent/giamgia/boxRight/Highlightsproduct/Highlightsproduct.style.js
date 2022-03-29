@@ -36,8 +36,6 @@ export const boxProductNew = styled.div`
   }
 `;
 
-
-
 export const buttonclick = styled.div`
   border: 1px solid #898989;
   display: flex;
@@ -60,9 +58,8 @@ export const boxgrow = styled.div`
 
 export const paddingProductnew = styled.div`
   padding: 10px;
-  img{
-       cursor: pointer;
-
+  img {
+    cursor: pointer;
   }
 `;
 
@@ -94,22 +91,24 @@ export const spricebox = styled.div`
   }
 `;
 export const titleMax = styled.div`
+    cursor: pointer;
   h1:first-child {
     margin-right: 20px;
     font-size: 26px;
-  }&:hover{
-    color:red;
+  }
+  &:hover {
+    color: red;
   }
   &:after {
-   content: "";
+    content: "";
     display: block;
     position: absolute;
     border: 1px solid #959595;
     height: 47px;
     left: 157px;
     top: 5px;
-}
-`
+  }
+`;
 export const Spans = styled.div`
   margin-top: 1px;
 `;

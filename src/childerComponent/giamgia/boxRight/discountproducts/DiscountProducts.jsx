@@ -8,7 +8,7 @@ export default function DiscountProducts() {
         <S.selectionnewProduct>
           <span>sản phẩm giảm giá</span>
         </S.selectionnewProduct>
-        <S.selectionnewProduct>Xem tất cả >></S.selectionnewProduct>
+        <S.selectionnewProduct>Xem tất cả {">>"}</S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
         <S.boxProductNew>
