@@ -14,6 +14,14 @@ import {
   FaWindowClose,
 } from "react-icons/fa";
 import paths from "../../Constants/paths";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure({
+  autoClose: 2000,
+  draggable: false,
+  position: toast.POSITION.TOP_RIGHT,
+});
 
 export default function Header() {
   const [key, setKey] = React.useState("");
@@ -23,19 +31,26 @@ export default function Header() {
   }, []);
 
   const handleGetCookie = (e) => {
-    let key = getCookie(e);
-    setKey(key);
+    let keys = getCookie(e);
+    setKey(keys);
   };
-
+  const notify = (e) => toast(e);
+  const handleDeleteGetCookie = () => {
+    if (key !== null) {
+      document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+    }
+    notify("Dang xuat");
+    return setKey("");
+  };
   const getCookie = (cname) => {
     let name = cname + "=";
     let ca = document.cookie.split(";");
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) == " ") {
+      while (c.charAt(0) === " ") {
         c = c.substring(1);
       }
-      if (c.indexOf(name) == 0) {
+      if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
       }
     }
@@ -47,18 +62,23 @@ export default function Header() {
       <S.StyledHeader>
         <S.login>
           <S.LoginIcon>
-            <S.tabIcon to={paths.home}>
-              <FaLock />
-              THANH TOÁN
-            </S.tabIcon>
-            <S.tabIcon to={paths.register}>
-              <FaSignInAlt />
-              ĐĂNG KÍ
-            </S.tabIcon>
+            {!key && (
+              <S.tabIcon to={paths.home}>
+                <FaLock />
+                THANH TOÁN
+              </S.tabIcon>
+            )}
+            {!key && (
+              <S.tabIcon to={paths.register}>
+                <FaSignInAlt />
+                ĐĂNG KÍ
+              </S.tabIcon>
+            )}
             <S.tabIcon to={paths.login}>
               <FaCheckSquare />
-              ĐĂNG NHẬP {key == "" ? "" : key}
+              {key === "" ? "ĐĂNG NHẬP" : key}
             </S.tabIcon>
+            {key && <button onClick={handleDeleteGetCookie}> click</button>}
           </S.LoginIcon>
         </S.login>
         <S.Midheader>

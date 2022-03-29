@@ -12,7 +12,10 @@ export default function FeedBack() {
             hàng tại Bookstore lần nữa.''
           </S.listNV>
           <S.imgAvata>
-            <img src="https://bizweb.dktcdn.net/thumb/compact/100/047/782/themes/847189/assets/clien-say1.jpg?1646216206548" />
+            <img
+              src="https://bizweb.dktcdn.net/thumb/compact/100/047/782/themes/847189/assets/clien-say1.jpg?1646216206548"
+              alt=""
+            />
           </S.imgAvata>
           <S.imgAvata1>- Christina Lee -</S.imgAvata1>
         </S.listName>

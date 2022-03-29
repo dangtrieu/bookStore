@@ -5,7 +5,7 @@ import TextPassword from "../../../components/TextPassword/TextPassword";
 import TextInputEmail from "../../../components/TextInputEmail/TextInputEmail";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 toast.configure({
@@ -33,7 +33,7 @@ function LoginPage() {
     console.log("check data", data);
     let datas = data.find(
       (item) =>
-        item.username == value.username && item.password == value.password
+        item.username === value.username && item.password === value.password
     );
     if (datas != null) {
       setCookie("username", value.username, 1);
@@ -79,10 +79,10 @@ function LoginPage() {
     let ca = document.cookie.split(";");
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) == " ") {
+      while (c.charAt(0) === " ") {
         c = c.substring(1);
       }
-      if (c.indexOf(name) == 0) {
+      if (c.indexOf(name) === 0) {
         return c.substring(name.length, c.length);
       }
     }
@@ -129,7 +129,6 @@ function LoginPage() {
               </S.inputPass>
               <S.boxbutton>
                 <S.buttonlogin onClick={handleLogin}>Đăng kí</S.buttonlogin>
-                <a href="#">Đăng Kí</a>
               </S.boxbutton>
             </S.FromLogin>
           </S.listBoxLeft>

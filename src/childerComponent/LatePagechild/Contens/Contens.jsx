@@ -1,6 +1,5 @@
 import React from "react";
 import * as S from "./contens.style";
-import { FaEnvelope } from "react-icons/fa";
 
 export default function Contens() {
   return (

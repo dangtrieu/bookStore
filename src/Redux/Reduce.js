@@ -1,7 +1,7 @@
 import { types } from "./Contents";
 
 export const data = {
-  dataBook: [{ name: "", price: 0, type: "", img: "", id: 0 }],
+  dataBook: [{ name: "", price: 0, type: "", img: "", tinhtrang: "", id: 0 }],
   login: []
 };
 

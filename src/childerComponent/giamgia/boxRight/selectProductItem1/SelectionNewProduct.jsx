@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import * as S from "./selectionNewReduce.style";
-
+import paths from "./../../../../Constants/paths";
 import { FaShoppingBag } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { getBooks } from "../../../../Redux/Action";
 export default function SelectionNewProduct() {
   const dispatch = useDispatch();
 
-  const [books, setBooks] = useState([]);
-  const [countcart, setCountCart] = useState(0);
   const state = useSelector((state) => state.Reduce);
 
-  console.log(state);
-
   const { dataBook: dataBook, login: login } = state;
-  console.log(dataBook);
+  const result = [];
+  for (var i = 0; i < dataBook.length; i++) {
+    if (i < 5) {
+      result.push(dataBook[i]);
+    }
+  }
   useEffect(() => {
     dispatch(getBooks());
   }, []);
-  const handleLengthCar = (value, index) => {};
   return (
     <S.boxx>
       <S.newProduct>
@@ -28,23 +28,28 @@ export default function SelectionNewProduct() {
         <S.selectionnewProduct>Xem tất cả {">>"}</S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
-        {dataBook.map((value, index) => (
-          <S.boxProductNew key={index}>
+        {result.map((x, i) => (
+          <S.boxProductNew key={i}>
             <S.paddingProductnew>
-              <img src={value.img} />
+              <S.boxImg
+                to={{
+                  pathname: paths.detail,
+                  search: "?id=" + x.id,
+                }}
+              >
+                <img src={x.img} />
+              </S.boxImg>
               <S.tablePrice>
-                <h3>{value.name}</h3>
+                <h3 to={paths.detail}>{x.name}</h3>
                 <S.spricebox>
-                  <h5>{value.price}</h5>
+                  <h5>{x.price}</h5>
                   <h3>30.000đ</h3>
                 </S.spricebox>
                 <S.buttonclick>
                   <S.bags>
                     <FaShoppingBag />
                   </S.bags>
-                  <S.Spans onClick={() => handleLengthCar((value, index))}>
-                    Thêm vào giỏ hàng
-                  </S.Spans>
+                  <S.Spans>Thêm vào giỏ hàng</S.Spans>
                 </S.buttonclick>
               </S.tablePrice>
             </S.paddingProductnew>

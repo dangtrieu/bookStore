@@ -3,10 +3,9 @@ import * as S from "./register.style";
 import { FaAngleRight } from "react-icons/fa";
 import TextPassword from "../../../components/TextPassword/TextPassword";
 import TextInputEmail from "../../../components/TextInputEmail/TextInputEmail";
-import paths from "./../../../Constants/paths";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 toast.configure({
@@ -39,7 +38,7 @@ function Register() {
         password: value.password == null ? "" : value.password,
       })
       .then(function (response) {
-        if (response.status == 201) {
+        if (response.status === 201) {
           notify("Dang ky thanh cong !!");
           navigate("/", { replace: true });
         }
@@ -89,7 +88,6 @@ function Register() {
               </S.inputPass>
               <S.boxbutton onClick={login}>
                 <S.buttonlogin>Đăng kí</S.buttonlogin>
-                <a href="#">Đăng Kí</a>
               </S.boxbutton>
             </S.FromLogin>
           </S.listBoxLeft>

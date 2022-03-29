@@ -11,7 +11,10 @@ export default function News() {
         <S.boxgrow>
           <S.boxProductNew>
             <S.paddingProductnew>
-              <img src="https://bizweb.dktcdn.net/thumb/large/100/047/782/articles/ong-chu.jpg?v=1452585658290" />
+              <img
+                src="https://bizweb.dktcdn.net/thumb/large/100/047/782/articles/ong-chu.jpg?v=1452585658290"
+                alt=""
+              />
               <S.tablePrice>
                 <h3>Lý Gia Thành – “Ông chủ của những ông chủ”</h3>
 

@@ -14,7 +14,10 @@ export default function SelectBoxleft() {
       <S.boxgrow>
         <S.boxProductNew>
           <S.paddingProductnew>
-            <img src="https://bizweb.dktcdn.net/thumb/large/100/047/782/products/di-qua-hoa-cuc-tai-ban--1-.jpg?v=1453198485223" />
+            <img
+              src="https://bizweb.dktcdn.net/thumb/large/100/047/782/products/di-qua-hoa-cuc-tai-ban--1-.jpg?v=1453198485223"
+              alt=""
+            />
             <S.tablePrice>
               <h3>di qua hoa cuc</h3>
               <S.spricebox>
