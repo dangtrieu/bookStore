@@ -5,19 +5,18 @@ import paths from "./../../../../Constants/paths";
 import { useDispatch, useSelector } from "react-redux";
 
 export default function DiscountProducts() {
-  const dispatch = useDispatch();
-
-  const state = useSelector((state) => state.Reduce);
-  const { dataBook: dataBook, login: login } = state;
-
-  let data = [];
-  for (var i = 0; i < dataBook.length; i++) {
-    if (dataBook[i].price === 56000) {
-      dataBook[i].price = dataBook[i].price - (dataBook[i].price * 10) / 100;
-      data.push(dataBook[i]);
+  const bookList = useSelector((state) => state.Reduce.dataBook);
+  const values = [];
+  const handleChange = () => {
+    for (var i = 0; i < bookList.length; i++) {
+      if (bookList[i].price == 56000) {
+        bookList[i].price = bookList[i].price - (bookList[i].price * 10) / 100;
+        values.push(bookList[i]);
+      }
     }
-  }
-  console.log(data);
+  };
+
+  console.log(values);
   return (
     <S.boxx>
       <S.newProduct>
@@ -27,7 +26,7 @@ export default function DiscountProducts() {
         <S.selectionnewProduct>Xem tất cả {">>"}</S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
-        {data.map((x, i) => (
+        {values.map((x, i) => (
           <S.boxProductNew key={i}>
             <S.paddingProductnew>
               <S.boxImg
