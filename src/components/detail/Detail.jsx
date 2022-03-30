@@ -3,18 +3,27 @@ import { useSelector } from "react-redux";
 import * as S from "./detail.style";
 import { FaAngleRight } from "react-icons/fa";
 import useQuery from "../../hooks/useQuery";
+import paths from "./../../Constants/paths";
+
 export default function Detail() {
   const qrString = useQuery();
   const { value } = qrString;
 
   const bookList = useSelector((state) => state.Reduce.dataBook);
 
+  const lengths = bookList.length;
+  const result = [];
+  for (var i = 0; result.length < 3; i++) {
+    var r = Math.floor(Math.random() * lengths);
+    if (result.indexOf(bookList[r]) === -1) result.push(bookList[r]);
+  }
+
+  //
   const [book, setBook] = useState({});
 
   useEffect(() => {
     setBook(bookList.find((b) => b.id === value));
   }, [bookList]);
-
   const [count, setCount] = useState(0);
   return (
     <S.boxs>
@@ -78,7 +87,26 @@ export default function Detail() {
                 </S.thongtin>
               </S.CotTrai>
               <S.cotPhai>
-                <S.Spham>san pham lien quan</S.Spham>
+                <S.Spham>Sản Phẩm Liên Quan</S.Spham>
+                <S.boclai>
+                  {result.map((x, i) => (
+                    <S.boxImsg key={i}>
+                      <S.urlimg
+                        to={{
+                          pathname: paths.detail,
+                          search: "?id=" + x.id,
+                        }}
+                      >
+                        <img src={x.img} alt="" />
+                      </S.urlimg>
+                      <S.ttitles>
+                        <S.camnag>{x.name}</S.camnag>
+                        <S.mota>{x.tinhtrang}</S.mota>
+                        <S.gia>{x.price}đ</S.gia>
+                      </S.ttitles>
+                    </S.boxImsg>
+                  ))}
+                </S.boclai>
               </S.cotPhai>
             </S.boxChitiet>
           )}

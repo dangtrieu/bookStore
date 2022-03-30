@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const newProduct = styled.div`
@@ -6,12 +7,13 @@ export const newProduct = styled.div`
   padding: 10px 15px 0 15px;
 `;
 export const selectionnewProduct = styled.div`
-cursor: pointer;
-  span{
-      font-size: 17px;
+  cursor: pointer;
+  span {
+    font-size: 17px;
     font-weight: 600;
-  }&:hover{
-    color:red;
+  }
+  &:hover {
+    color: red;
   }
 `;
 export const boxx = styled.div`
@@ -51,9 +53,8 @@ export const boxgrow = styled.div`
 
 export const paddingProductnew = styled.div`
   padding: 10px;
-  img{
-       cursor: pointer;
-
+  img {
+    cursor: pointer;
   }
 `;
 
@@ -61,13 +62,19 @@ export const tablePrice = styled.div`
   justify-content: center;
   padding: 10px 15px 0 15px;
   h3 {
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: block;
+    display: -webkit-box;
+  	-webkit-line-clamp: 1; 
+  	-webkit-box-orient: vertical;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+
+
     text-transform: uppercase;
-    overflow: hidden;
+
     font-size: 14px;
     font-weight: 600;
-    display: flex;
+  
     justify-content: center;
   }
 `;
@@ -95,5 +102,8 @@ export const bags = styled.div`
   }
 `;
 export const Spans = styled.div`
+  margin-top: 1px;
+`;
+export const boxImg = styled(Link)`
   margin-top: 1px;
 `;

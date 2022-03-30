@@ -12,7 +12,7 @@ export default function SelectionNewProduct() {
   const { dataBook: dataBook, login: login } = state;
   const result = [];
   for (var i = 0; i < dataBook.length; i++) {
-    if (i < 5) {
+    if (i < 4) {
       result.push(dataBook[i]);
     }
   }

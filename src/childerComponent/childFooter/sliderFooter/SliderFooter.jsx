@@ -37,7 +37,7 @@ export default function SliderFooter() {
   return (
     <S.boxSlider>
       {image.map((x, index) => (
-        <S.sliders isActive={getActiveSlider(index, currenIndex)}>
+        <S.sliders key={index} isActive={getActiveSlider(index, currenIndex)}>
           <img src={x.imgs} />
         </S.sliders>
       ))}

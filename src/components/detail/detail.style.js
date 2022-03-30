@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 export const boxs = styled.div`
   width: 100%;
 `;
@@ -84,7 +84,6 @@ export const prices = styled.div`
 
 export const cotPhai = styled.div`
   width: 30%;
-  background: red;
 `;
 
 export const themgio = styled.div`
@@ -180,5 +179,46 @@ export const statusts = styled.div`
 `;
 
 export const Spham = styled.div`
- 
+  margin-bottom: 20px;
+      font-weight: 700;
+    font-size: 20px;
+    color: #0c0c0c;
+`;
+
+export const boxImsg = styled.div`
+  width: 100%;
+  display: flex;
+  margin: 30px 0 30px 0;
+`;
+export const urlimg = styled(Link)`
+  width: 30%;
+  img {
+    width: 100%;
+  }
+`;
+export const ttitles = styled.div`
+  width: 70%;
+  padding: 0 0 0 30px;
+`;
+
+export const camnag = styled.div`
+  font-weight: 600;
+  font-size: 19px;
+  color: #636363;
+  margin-bottom: 10px;
+`;
+export const mota = styled.div`
+  font-size: 17px;
+  color: #898989;
+  line-height: 24px;
+  width: 100%;
+  margin-bottom: 10px;
+`;
+export const gia = styled.div`
+  font-size: 20px;
+  font-weight: 700;
+  color: #f26522;
+`;
+export const boclai = styled.div`
+  border-top: 1px solid #000;
 `;

@@ -1,36 +1,31 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
 export const newProduct = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 10px 15px 0 15px;
-  position: relative;
 `;
 export const selectionnewProduct = styled.div`
-  display: flex;
-  h1:first-child {
-    margin-right: 20px;
-    font-size: 26px;
+  cursor: pointer;
+  span {
+    font-size: 17px;
+    font-weight: 600;
   }
-  &:after {
-   content: "";
-    display: block;
-    position: absolute;
-    border: 1px solid #f26522;
-    height: 47px;
-    left: 10px;
-    top: 5px;
-}
-
+  &:hover {
+    color: red;
   }
 `;
 export const boxx = styled.div`
   width: 100%;
   padding: 0 15px 0 15px;
+  margin-bottom: 30px;
   background: #fff;
 `;
 export const boxProductNew = styled.div`
   width: 100%;
   margin-bottom: 35px;
+
   img {
     width: 100%;
   }
@@ -67,13 +62,19 @@ export const tablePrice = styled.div`
   justify-content: center;
   padding: 10px 15px 0 15px;
   h3 {
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    display: block;
+    display: -webkit-box;
+  	-webkit-line-clamp: 1; 
+  	-webkit-box-orient: vertical;
+  	overflow: hidden;
+  	text-overflow: ellipsis;
+
+
     text-transform: uppercase;
-    overflow: hidden;
+
     font-size: 14px;
     font-weight: 600;
-    display: flex;
+  
     justify-content: center;
   }
 `;
@@ -90,28 +91,7 @@ export const spricebox = styled.div`
     text-decoration: line-through;
   }
 `;
-export const titleMax = styled.div`
-    cursor: pointer;
-  h1:first-child {
-    margin-right: 20px;
-    font-size: 26px;
-  }
-  &:hover {
-    color: red;
-  }
-  &:after {
-    content: "";
-    display: block;
-    position: absolute;
-    border: 1px solid #959595;
-    height: 47px;
-    left: 157px;
-    top: 5px;
-  }
-`;
-export const Spans = styled.div`
-  margin-top: 1px;
-`;
+
 export const bags = styled.div`
   position: absolute;
   left: 11px;
@@ -120,4 +100,10 @@ export const bags = styled.div`
     width: 20px;
     height: 20px;
   }
+`;
+export const Spans = styled.div`
+  margin-top: 1px;
+`;
+export const boxImg = styled(Link)`
+  margin-top: 1px;
 `;
