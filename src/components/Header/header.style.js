@@ -162,7 +162,7 @@ export const Textbox = styled.div`
   margin-left: 30px;
 `;
 export const apartfrom = styled.div`
-width:100%;
+  width: 100%;
   border: 1px solid red;
   padding: 0 15px 0 15px;
   margin: 5px;
@@ -244,7 +244,6 @@ export const boxbuttonmn = styled.div`
 export const boc = styled.div`
   width: 100%;
 `;
-
 export const click = styled.div`
   width: 100%;
 `;

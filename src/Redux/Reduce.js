@@ -62,7 +62,7 @@ const reduce = (state = data, action) => {
       const indexS = state.cart.findIndex(b => b.book.id === bookS.id)
 
       let _cartS = state.cart
-      _cart[index].count += 1
+      _cart[indexS].count -= 1
       localStorage.setItem("cart", JSON.stringify(_cartS));
       return {
         ...state,
@@ -73,7 +73,7 @@ const reduce = (state = data, action) => {
       const index = state.cart.findIndex(b => b.book.id === book.id)
 
       let _cart = state.cart
-      _cart[index].count -= 1
+      _cart[index].count += 1
       localStorage.setItem("cart", JSON.stringify(_cart));
       return {
         ...state,

@@ -30,6 +30,15 @@ export default function Header() {
 
   const dispatch = useDispatch();
   const notify = (e) => toast(e);
+  const [totalAmount, settotalAmount] = useState(0);
+  console.log(cartList);
+   useEffect(() => {
+    const total = cartList.reduce(
+      (total, nextCart) => total + nextCart.book.price * nextCart.count,
+      0
+    );
+    settotalAmount(total);
+  }, [cartList]);
 
   const handleBy = () => {
     if (key) {
@@ -132,13 +141,14 @@ export default function Header() {
                           <h5>{x.count * x.book.price}</h5>
                           <S.amount>
                             <S.apartfrom
-                              onChange={() => dispatch(updateCart(x))}
-                              onClick={() => setstate(state - 1)}
+                              onClick={() => setstate(state +1)}
                             >
-                              -
+                              <S.click onClick={() => dispatch(updateCart(x))}>
+                            -
+                              </S.click>
                             </S.apartfrom>
                             <S.number>
-                              {state - 1 ? x.count -1 : x.count - 1}
+                              {state - 1 ? x.count - 1 : x.count - 1}
                             </S.number>
                             <S.adds onClick={() => setstate(state - 1)}>
                               <S.click onClick={() => dispatch(updateCartS(x))}>
@@ -146,7 +156,7 @@ export default function Header() {
                               </S.click>
                             </S.adds>
                           </S.amount>
-                        </S.Textbox>      
+                        </S.Textbox>
                         <S.closes>
                           <FaWindowClose />
                         </S.closes>
@@ -160,8 +170,12 @@ export default function Header() {
                       <span>chưa có giỏ hàng</span>
                     </S.boc>
                   )}
+
                   <S.manys>
-                    <S.titlemany>tổng tiền: </S.titlemany>
+                    <S.titlemany>
+                      tổng tiền:
+                      {totalAmount}
+                    </S.titlemany>
                     <S.boxbuttonmn>
                       <S.buttonmany>Thanh Toán</S.buttonmany>
                       <S.buttonmany>Giở Hàng</S.buttonmany>
