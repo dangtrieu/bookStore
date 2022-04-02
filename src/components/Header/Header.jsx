@@ -140,17 +140,15 @@ export default function Header() {
                           <spam>{x.book.name}</spam>
                           <h5>{x.count * x.book.price}</h5>
                           <S.amount>
-                            <S.apartfrom
-                              onClick={() => setstate(state +1)}
-                            >
+                            <S.apartfrom onClick={() => setstate(state - 1)}>
                               <S.click onClick={() => dispatch(updateCart(x))}>
-                            -
+                                -
                               </S.click>
                             </S.apartfrom>
                             <S.number>
-                              {state - 1 ? x.count - 1 : x.count - 1}
+                              {x.count}
                             </S.number>
-                            <S.adds onClick={() => setstate(state - 1)}>
+                            <S.adds onClick={() => setstate(state + 1)}>
                               <S.click onClick={() => dispatch(updateCartS(x))}>
                                 +
                               </S.click>
