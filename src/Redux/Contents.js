@@ -1,5 +1,9 @@
 
 export const types = {
     ADD_BOOK: "ADD_BOOK",
-    loadBook: "LOAD_BOOK"
+    loadBook: "LOAD_BOOK",
+    ADD_TO_CART: "ADD_TO_CART",
+    DELETE_LIST: "DELETE_LIST",
+    UPDATE_CART: "UPDATE_CART",
+    UPDATE_CART_ADD:"UPDATE_CART_ADD"
 }

@@ -1,25 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./Highlightsproduct.style";
 import { FaShoppingBag } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import paths from "./../../../../Constants/paths";
+import { toast } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
+import { addToCart } from "../../../../Redux/Action";
+
+toast.configure({
+  autoClose: 2000,
+  draggable: false,
+  position: toast.POSITION.TOP_RIGHT,
+});
+
 export default function Highlightsproduct() {
+  const notify = (e) => toast(e);
   const dispatch = useDispatch();
+  const [counts, setCounts] = useState(1);
+  const [book, setBook] = useState([]);
 
-  const state = useSelector((state) => state.Reduce);
+  const dataBook = useSelector((state) => state.Reduce.dataBook);
 
-  const { dataBook: dataBook, login: login } = state;
-
-  const result = [];
-
-  for (var i = 0; i < dataBook.length; i++) {
-    const newdate = new Date() - new Date(dataBook[i].date);
-    const newnow = newdate / (1000 * 3600 * 24);
-    if (newnow < 5) {
-      result.push(dataBook[i]);
+  const handleChanges = () => {
+    if (dataBook.length > 0) {
+      let value = [];
+      for (let i = 0; i < dataBook.length; i++) {
+        const newdate = new Date() - new Date(dataBook[i].date);
+        const newnow = newdate / (1000 * 3600 * 24);
+        if (newnow < 5) {
+          value.push(dataBook[i]);
+        }
+      }
+      setBook(value);
     }
-  }
+  };
+  useEffect(() => {
+    handleChanges();
+  }, [dataBook]);
 
+  const handleCart = (x) => {
+    if (counts !== 0) {
+      dispatch(addToCart({ book: x, counts: counts }));
+      notify("them thanh cong");
+    } else {
+      notify("them that bai");
+    }
+  };
   return (
     <S.boxx>
       <S.newProduct>
@@ -29,7 +56,7 @@ export default function Highlightsproduct() {
         <S.selectionnewProduct>Xem tất cả {">>"}</S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
-        {result.map((x, i) => (
+        {book.map((x, i) => (
           <S.boxProductNew key={i}>
             <S.paddingProductnew>
               <S.boxImg
@@ -46,7 +73,7 @@ export default function Highlightsproduct() {
                   <h5>{x.price}đ</h5>
                   <h3>30.000đ</h3>
                 </S.spricebox>
-                <S.buttonclick>
+                <S.buttonclick onClick={() => handleCart(x)}>
                   <S.bags>
                     <FaShoppingBag />
                   </S.bags>

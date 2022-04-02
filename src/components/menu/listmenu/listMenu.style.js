@@ -14,21 +14,10 @@ export const fortmat = styled.div`
   width: 1200px;
   margin-right: auto;
   margin-left: auto;
-
 `;
 export const Menus = styled.div`
   display: flex;
   font-size: 14px;
-`;
-export const conten = styled.div`
-  coler: white;
-  margin-right: 40px;
-  padding: 10px;
-  text-transform: uppercase;
-  &:hover {
-    background: black;
-    cursor: pointer;
-  }
 `;
 
 export const searchs = styled.div`
@@ -69,9 +58,6 @@ export const Products = styled.div`
   svg {
     margin: 5px 0 0 5px;
   }
-  &:hover ${listProduct} {
-    display: block;
-  }
 `;
 
 export const titleProduct = styled.div`
@@ -83,4 +69,23 @@ export const titleProduct = styled.div`
   color: #333;
   text-align: left;
   text-transform: lowercase;
+  &:hover {
+    color: red;
+  }
+`;
+
+export const conten = styled.div`
+  coler: white;
+  margin-right: 40px;
+  padding: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background: black;
+    cursor: pointer;
+  }
+  &:hover ${listProduct} {
+    display: block;
+    color: red;
+  }
 `;

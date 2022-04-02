@@ -1,22 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./discountproducts.style";
 import { FaShoppingBag } from "react-icons/fa";
 import paths from "./../../../../Constants/paths";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { addToCart } from "../../../../Redux/Action";
 
+toast.configure({
+  autoClose: 2000,
+  draggable: false,
+  position: toast.POSITION.TOP_RIGHT,
+});
 export default function DiscountProducts() {
+  const notify = (e) => toast(e);
+  const dispatch = useDispatch();
   const bookList = useSelector((state) => state.Reduce.dataBook);
-  const values = [];
+  const [book, setBook] = useState([]);
+  const [counts, setCounts] = useState(1);
+
   const handleChange = () => {
-    for (var i = 0; i < bookList.length; i++) {
-      if (bookList[i].price == 56000) {
-        bookList[i].price = bookList[i].price - (bookList[i].price * 10) / 100;
-        values.push(bookList[i]);
+    if (bookList?.length > 0) {
+      let value = [];
+      for (let i = 0; i < bookList.length; i++) {
+        //value = bookList.find((item) => item.price === bookList[i].price === 56000);
+        if (bookList[i].price === 56000) {
+          bookList[i].price =
+            bookList[i].price - (bookList[i].price * 10) / 100;
+          value.push(bookList[i]);
+        }
       }
+      setBook(value);
     }
   };
 
-  console.log(values);
+  const handleCart = (x) => {
+    if (counts !== 0) {
+      dispatch(addToCart({ book: x, counts: counts }));
+      notify("them thanh cong");
+    } else {
+      notify("them that bai");
+    }
+  };
+  useEffect(() => {
+    handleChange();
+  }, [bookList]);
+
   return (
     <S.boxx>
       <S.newProduct>
@@ -26,7 +55,7 @@ export default function DiscountProducts() {
         <S.selectionnewProduct>Xem tất cả {">>"}</S.selectionnewProduct>
       </S.newProduct>
       <S.boxgrow>
-        {values.map((x, i) => (
+        {book.map((x, i) => (
           <S.boxProductNew key={i}>
             <S.paddingProductnew>
               <S.boxImg
@@ -43,7 +72,7 @@ export default function DiscountProducts() {
                   <h5>{x.price}</h5>
                   <h3>30.000đ</h3>
                 </S.spricebox>
-                <S.buttonclick>
+                <S.buttonclick onClick={() => handleCart(x)}>
                   <S.bags>
                     <FaShoppingBag />
                   </S.bags>

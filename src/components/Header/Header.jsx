@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from "./header.style";
 import "bootstrap/dist/css/bootstrap.css";
 import ListMenu from "../menu/listmenu/ListMenu";
@@ -14,27 +14,35 @@ import {
   FaWindowClose,
 } from "react-icons/fa";
 import paths from "../../Constants/paths";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import { updateCart, updateCartS } from "../../Redux/Action";
 toast.configure({
   autoClose: 2000,
   draggable: false,
   position: toast.POSITION.TOP_RIGHT,
 });
-
 export default function Header() {
   const [key, setKey] = React.useState("");
+  const cartList = useSelector((state) => state.Reduce.cart);
+  const [state, setstate] = useState(0);
 
+  const dispatch = useDispatch();
+  const notify = (e) => toast(e);
+
+  const handleBy = () => {
+    if (key) {
+      notify("thanh tan thanh cong");
+    } else notify("dang nhap de thanh toan");
+  };
   React.useEffect(() => {
     handleGetCookie("username");
   }, []);
-
   const handleGetCookie = (e) => {
     let keys = getCookie(e);
     setKey(keys);
   };
-  const notify = (e) => toast(e);
   const handleDeleteGetCookie = () => {
     if (key !== null) {
       document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
@@ -56,7 +64,6 @@ export default function Header() {
     }
     return "";
   };
-
   return (
     <>
       <S.StyledHeader>
@@ -64,21 +71,20 @@ export default function Header() {
           <S.LoginIcon>
             {!key && (
               <S.tabIcon to={paths.home}>
-                <FaLock />
-                THANH TOÁN
+                <FaLock /> THANH TOÁN
               </S.tabIcon>
             )}
             {!key && (
               <S.tabIcon to={paths.register}>
-                <FaSignInAlt />
-                ĐĂNG KÍ
+                <FaSignInAlt /> ĐĂNG KÍ
               </S.tabIcon>
             )}
             <S.tabIcon to={paths.login}>
-              <FaCheckSquare />
-              {key === "" ? "ĐĂNG NHẬP" : key}
+              <FaCheckSquare /> {key === "" ? "ĐĂNG NHẬP" : key}
             </S.tabIcon>
-            {key && <button onClick={handleDeleteGetCookie}> click</button>}
+            {key && (
+              <S.buttons onClick={handleDeleteGetCookie}> ĐĂNG XUẤT</S.buttons>
+            )}
           </S.LoginIcon>
         </S.login>
         <S.Midheader>
@@ -112,46 +118,60 @@ export default function Header() {
               </S.HeaderBrand>
               <S.boxcart>
                 <S.Cart>
-                  <FaShoppingCart />
-                  sản phẩm
-                  <FaSortDown />
+                  <FaShoppingCart /> sản phẩm <FaSortDown />
                 </S.Cart>
                 <S.cartNo>
-                  <S.boxsimgs>
-                    <S.imgsIcon>
-                      <img
-                        src="https://bizweb.dktcdn.net/thumb/compact/100/047/782/products/pippi-tat-dai-tai-ban--1-.jpg"
-                        alt=""
-                      />
-                    </S.imgsIcon>
-                    <S.Textbox>
-                      <spam>pipi tất dài</spam>
-                      <h5>56.000d</h5>
-                      <S.amount>
-                        <S.apartfrom>-</S.apartfrom>
-                        <S.number>2</S.number>
-                        <S.adds>+</S.adds>
-                      </S.amount>
-                    </S.Textbox>
-                    <S.closes>
-                      <FaWindowClose />
-                    </S.closes>
-                  </S.boxsimgs>
+                  {cartList &&
+                    cartList.map((x, i) => (
+                      <S.boxsimgs key={i}>
+                        <S.imgsIcon>
+                          <img src={x.book.img} alt="" />
+                        </S.imgsIcon>
+                        <S.Textbox>
+                          <spam>{x.book.name}</spam>
+                          <h5>{x.count * x.book.price}</h5>
+                          <S.amount>
+                            <S.apartfrom
+                              onChange={() => dispatch(updateCart(x))}
+                              onClick={() => setstate(state - 1)}
+                            >
+                              -
+                            </S.apartfrom>
+                            <S.number>
+                              {state - 1 ? x.count -1 : x.count - 1}
+                            </S.number>
+                            <S.adds onClick={() => setstate(state - 1)}>
+                              <S.click onClick={() => dispatch(updateCartS(x))}>
+                                +
+                              </S.click>
+                            </S.adds>
+                          </S.amount>
+                        </S.Textbox>      
+                        <S.closes>
+                          <FaWindowClose />
+                        </S.closes>
+                      </S.boxsimgs>
+                    ))}
+                  {cartList == 0 && (
+                    <S.boc>
+                      <S.blockCart>
+                        <img src="https://www.baotinmanhhai.vn/assets/images/no-cart.png" />
+                      </S.blockCart>
+                      <span>chưa có giỏ hàng</span>
+                    </S.boc>
+                  )}
                   <S.manys>
-                    <S.titlemany>tổng tiền: 114000đ</S.titlemany>
+                    <S.titlemany>tổng tiền: </S.titlemany>
                     <S.boxbuttonmn>
                       <S.buttonmany>Thanh Toán</S.buttonmany>
                       <S.buttonmany>Giở Hàng</S.buttonmany>
                     </S.boxbuttonmn>
                   </S.manys>
-                  {/* <S.blockCart>
-                    <img src="https://www.baotinmanhhai.vn/assets/images/no-cart.png" />
-                  </S.blockCart>
-                  <span>chưa có giỏ hàng</span> */}
                 </S.cartNo>
               </S.boxcart>
             </S.Rowss>
           </S.Container>
+          -
         </S.Midheader>
       </S.StyledHeader>
       <ListMenu />

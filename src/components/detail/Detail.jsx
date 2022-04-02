@@ -1,30 +1,47 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as S from "./detail.style";
 import { FaAngleRight } from "react-icons/fa";
 import useQuery from "../../hooks/useQuery";
 import paths from "./../../Constants/paths";
+import { addToCart } from "../../Redux/Action";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure({
+  autoClose: 2000,
+  draggable: false,
+  position: toast.POSITION.TOP_RIGHT,
+});
 
 export default function Detail() {
+  const notify = (e) => toast(e);
   const qrString = useQuery();
   const { value } = qrString;
-
+  const dispatch = useDispatch();
   const bookList = useSelector((state) => state.Reduce.dataBook);
-
+  const [book, setBook] = useState({});
+  const [counts, setCounts] = useState(1);
   const lengths = bookList.length;
   const result = [];
   for (var i = 0; result.length < 3; i++) {
     var r = Math.floor(Math.random() * lengths);
     if (result.indexOf(bookList[r]) === -1) result.push(bookList[r]);
   }
+  const handleCart = () => {
+    if (counts !== 0) {
+      dispatch(addToCart({ book, counts }));
 
-  //
-  const [book, setBook] = useState({});
+      notify("them thanh cong");
+    } else {
+      notify("them that bai");
+    }
+  };
 
   useEffect(() => {
     setBook(bookList.find((b) => b.id === value));
-  }, [bookList]);
-  const [count, setCount] = useState(0);
+  }, [value]);
+
   return (
     <S.boxs>
       <S.Container>
@@ -70,14 +87,14 @@ export default function Detail() {
                   <S.ttBox>
                     <S.bangtinh>
                       <S.amount>
-                        <S.apartfrom onClick={() => setCount(count - 1)}>
+                        <S.apartfrom onClick={() => setCounts(counts - 1)}>
                           -
                         </S.apartfrom>
-                        <S.number>{count}</S.number>
-                        <S.adds onClick={() => setCount(count + 1)}>+</S.adds>
+                        <S.number>{counts}</S.number>
+                        <S.adds onClick={() => setCounts(counts + 1)}>+</S.adds>
                       </S.amount>
                     </S.bangtinh>
-                    <S.themgio>
+                    <S.themgio onClick={handleCart}>
                       <span>thêm vào giỏ hàng</span>
                     </S.themgio>
                   </S.ttBox>

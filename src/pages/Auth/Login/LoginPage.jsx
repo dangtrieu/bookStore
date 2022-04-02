@@ -30,7 +30,6 @@ function LoginPage() {
 
   //logic here
   const handleLogin = () => {
-    console.log("check data", data);
     let datas = data.find(
       (item) =>
         item.username === value.username && item.password === value.password
@@ -50,7 +49,6 @@ function LoginPage() {
     setValue({ ...value, [username]: password });
   };
 
-  console.log("data", data);
 
   const notify = (e) => toast(e);
 
@@ -128,7 +126,7 @@ function LoginPage() {
                 </S.textS>
               </S.inputPass>
               <S.boxbutton>
-                <S.buttonlogin onClick={handleLogin}>Đăng kí</S.buttonlogin>
+                <S.buttonlogin onClick={handleLogin}>ĐĂNG NHẬP</S.buttonlogin>
               </S.boxbutton>
             </S.FromLogin>
           </S.listBoxLeft>

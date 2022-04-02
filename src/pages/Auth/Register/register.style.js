@@ -63,7 +63,29 @@ export const inputEmail = styled.div`
 `;
 
 export const buttonlogin = styled.div`
-border:1px solid #f26522;
+margin-top:20px;
+margin-bottom:20px;
+ align-items: center;
+  background-color: #f26522;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgb(0 0 0 / 2%) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: 600;
+  justify-content: center;
+  margin-left: 10px;
+  padding: 5px 8px 5px 8px;
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
 `;
 export const boxbutton = styled.div`
 width:100%;
