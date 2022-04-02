@@ -80,7 +80,7 @@ export default function Header() {
           <S.LoginIcon>
             {!key && (
               <S.tabIcon to={paths.home}>
-                <FaLock /> THANH TOÁN
+                <FaLock /> TRANG CHU
               </S.tabIcon>
             )}
             {!key && (
@@ -145,9 +145,7 @@ export default function Header() {
                                 -
                               </S.click>
                             </S.apartfrom>
-                            <S.number>
-                              {x.count}
-                            </S.number>
+                            <S.number>{x.count}</S.number>
                             <S.adds onClick={() => setstate(state + 1)}>
                               <S.click onClick={() => dispatch(updateCartS(x))}>
                                 +
@@ -175,7 +173,7 @@ export default function Header() {
                       {totalAmount}
                     </S.titlemany>
                     <S.boxbuttonmn>
-                      <S.buttonmany>Thanh Toán</S.buttonmany>
+                      <S.buttonmany onClick={handleBy}>Thanh Toán</S.buttonmany>
                       <S.buttonmany>Giở Hàng</S.buttonmany>
                     </S.boxbuttonmn>
                   </S.manys>
