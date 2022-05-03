@@ -7,6 +7,7 @@ import Router from './Router'
 function App() {
   return (
     <S.apps>
+      <h2>Trieu oc</h2>
       <Router />
     </S.apps>
   );
