@@ -22,7 +22,7 @@ export default function Header() {
           <S.LoginIcon>
             <S.tabIcon>
               <FaLock />
-              THANH TOÁN
+              THANH TOÁN 1
             </S.tabIcon>
             <S.tabIcon>
               <FaSignInAlt />
